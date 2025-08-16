@@ -48,4 +48,5 @@ sonar {
             property("sonar.projectKey", "wasiliyterkin46_java-project-78")
             property("sonar.organization", "wasiliyterkin46")
         }
+    }
 }
