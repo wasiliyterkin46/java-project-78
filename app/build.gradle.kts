@@ -1,6 +1,5 @@
 plugins {
     id("java")
-    application
     checkstyle
     jacoco
     id("org.sonarqube") version "6.2.0.5505"
@@ -45,10 +44,8 @@ tasks.test {
 
 sonar {
     properties {
-        properties {
-            property("sonar.projectKey", "wasiliyterkin46_java-project-78")
-            property("sonar.organization", "wasiliyterkin46")
-            property("sonar.host.url", "https://sonarcloud.io")
-        }
+        property("sonar.projectKey", "wasiliyterkin46_java-project-78")
+        property("sonar.organization", "wasiliyterkin46")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
