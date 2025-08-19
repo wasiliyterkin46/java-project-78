@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.schemas.NumberSchema;
 import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,5 +36,29 @@ public class ValidatorTest {
 
         schema.minLength(10).minLength(4).contains("He");
         assertEquals(true, schema.isValid("Hexlet"));
+    }
+
+    @Test
+    public void numberSchemaTest() {
+        NumberSchema schema = validator.number();
+
+        assertEquals(true, schema.isValid(null));
+        assertEquals(true, schema.isValid(5));
+
+        schema.required();
+        assertEquals(false, schema.isValid(null));
+        assertEquals(true, schema.isValid(5));
+
+        schema.positive();
+        assertEquals(true, schema.isValid(10));
+        assertEquals(false, schema.isValid(-10));
+        assertEquals(false, schema.isValid(0));
+
+        schema.range(5, 10);
+
+        schema.isValid(5); // true
+        schema.isValid(10); // true
+        schema.isValid(4); // false
+        schema.isValid(11); // false
     }
 }
