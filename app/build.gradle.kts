@@ -27,10 +27,6 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
-/*application {
-    mainClass = "hexlet.code.App"
-}*/
-
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
 checkstyle {
