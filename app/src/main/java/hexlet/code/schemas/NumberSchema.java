@@ -7,7 +7,7 @@ public class NumberSchema extends BaseSchema<Number> {
     }
 
     public NumberSchema positive() {
-        checks.put("positive", n -> n != null && n.doubleValue() > 0);
+        checks.put("positive", n -> n == null || n.doubleValue() > 0);
         return this;
     }
 

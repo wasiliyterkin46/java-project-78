@@ -54,17 +54,17 @@ public class ValidatorTest {
         assertEquals(true, schema.isValid(null));
         assertEquals(true, schema.isValid(5));
 
-        schema.required();
-        assertEquals(false, schema.isValid(null));
-        assertEquals(true, schema.isValid(5));
-
         schema.positive();
+        assertEquals(true, schema.isValid(null));
         assertEquals(true, schema.isValid(10));
         assertEquals(false, schema.isValid(-10));
         assertEquals(false, schema.isValid(0));
 
-        schema.range(5, 10);
+        schema.required();
+        assertEquals(false, schema.isValid(null));
+        assertEquals(true, schema.isValid(5));
 
+        schema.range(5, 10);
         assertEquals(true, schema.isValid(5));
         assertEquals(true, schema.isValid(10));
         assertEquals(false, schema.isValid(4));
